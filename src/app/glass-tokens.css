@@ -1,0 +1,446 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-glass-thin-bg: var(--glass-thin-bg);
+  --color-glass-thin-border: var(--glass-thin-border);
+  --color-glass-regular-bg: var(--glass-regular-bg);
+  --color-glass-regular-border: var(--glass-regular-border);
+  --color-glass-strong-bg: var(--glass-strong-bg);
+  --color-glass-strong-border: var(--glass-strong-border);
+  --color-glass-highlight: var(--glass-highlight);
+  --color-glass-specular: var(--glass-specular);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(0.985 0.002 250);
+  --foreground: oklch(0.18 0.01 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.01 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.01 250);
+  --primary: oklch(0.55 0.22 264);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.005 250);
+  --secondary-foreground: oklch(0.25 0.01 250);
+  --muted: oklch(0.96 0.005 250);
+  --muted-foreground: oklch(0.5 0.012 250);
+  --accent: oklch(0.95 0.02 264);
+  --accent-foreground: oklch(0.3 0.05 264);
+  --destructive: oklch(0.6 0.245 27);
+  --success: oklch(0.65 0.18 152);
+  --warning: oklch(0.75 0.16 70);
+  --info: oklch(0.62 0.15 230);
+  --border: oklch(0.9 0.005 250);
+  --input: oklch(0.92 0.005 250);
+  --ring: oklch(0.55 0.22 264);
+  --chart-1: oklch(0.646 0.222 41);
+  --chart-2: oklch(0.6 0.118 184);
+  --chart-3: oklch(0.55 0.22 264);
+  --chart-4: oklch(0.828 0.189 84);
+  --chart-5: oklch(0.769 0.188 70);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.18 0.01 250);
+  --sidebar-primary: oklch(0.55 0.22 264);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.95 0.02 264);
+  --sidebar-accent-foreground: oklch(0.3 0.05 264);
+  --sidebar-border: oklch(0.9 0.005 250);
+  --sidebar-ring: oklch(0.55 0.22 264);
+
+  /* Material Tokens */
+
+  --glass-blur-thin: 14px;
+  --glass-blur-regular: 24px;
+  --glass-blur-strong: 36px;
+
+  --glass-saturation: 1.5;
+  --glass-saturation-strong: 1.8;
+  --glass-brightness: 1.05;
+
+  /* Thin Glass toolbars, floating controls */
+  --glass-thin-bg: rgba(255, 255, 255, 0.55);
+  --glass-thin-bg-hover: rgba(255, 255, 255, 0.68);
+  --glass-thin-bg-pressed: rgba(255, 255, 255, 0.42);
+  --glass-thin-border: rgba(255, 255, 255, 0.7);
+  --glass-thin-border-inset: rgba(15, 23, 42, 0.06);
+  --glass-thin-highlight-top: rgba(255, 255, 255, 0.85);
+  --glass-thin-highlight-bottom: rgba(15, 23, 42, 0.04);
+  --glass-thin-inner-shadow: rgba(15, 23, 42, 0.08);
+  --glass-thin-ambient-shadow: rgba(15, 23, 42, 0.1);
+  --glass-thin-contact-shadow: rgba(15, 23, 42, 0.06);
+  --glass-thin-edge: rgba(15, 23, 42, 0.1);
+
+  /* Regular Glass , cards, popovers, sidebars */
+  --glass-regular-bg: rgba(255, 255, 255, 0.68);
+  --glass-regular-bg-hover: rgba(255, 255, 255, 0.78);
+  --glass-regular-bg-pressed: rgba(255, 255, 255, 0.55);
+  --glass-regular-border: rgba(255, 255, 255, 0.8);
+  --glass-regular-border-inset: rgba(15, 23, 42, 0.08);
+  --glass-regular-highlight-top: rgba(255, 255, 255, 0.95);
+  --glass-regular-highlight-bottom: rgba(15, 23, 42, 0.05);
+  --glass-regular-inner-shadow: rgba(15, 23, 42, 0.1);
+  --glass-regular-ambient-shadow: rgba(15, 23, 42, 0.14);
+  --glass-regular-contact-shadow: rgba(15, 23, 42, 0.08);
+  --glass-regular-edge: rgba(15, 23, 42, 0.12);
+
+  /* Strong Glass , modals, sheets, focus areas */
+  --glass-strong-bg: rgba(255, 255, 255, 0.82);
+  --glass-strong-bg-hover: rgba(255, 255, 255, 0.88);
+  --glass-strong-bg-pressed: rgba(255, 255, 255, 0.75);
+  --glass-strong-border: rgba(255, 255, 255, 0.9);
+  --glass-strong-border-inset: rgba(15, 23, 42, 0.1);
+  --glass-strong-highlight-top: rgba(255, 255, 255, 1);
+  --glass-strong-highlight-bottom: rgba(15, 23, 42, 0.06);
+  --glass-strong-inner-shadow: rgba(15, 23, 42, 0.12);
+  --glass-strong-ambient-shadow: rgba(15, 23, 42, 0.2);
+  --glass-strong-contact-shadow: rgba(15, 23, 42, 0.12);
+  --glass-strong-edge: rgba(15, 23, 42, 0.14);
+
+  /* Edge & specular */
+  --glass-highlight: rgba(255, 255, 255, 0.85);
+  --glass-specular: rgba(255, 255, 255, 0.95);
+
+  /* Tint , very subtle contextual color pick-up */
+  --glass-tint: rgba(255, 255, 255, 0.04);
+
+  /* Radius scale tuned for glass curvature */
+  --radius-pill: 9999px;
+  --radius-xs: 8px;
+  --radius-sm-glass: 12px;
+  --radius-md-glass: 18px;
+  --radius-lg-glass: 24px;
+  --radius-xl-glass: 30px;
+  --radius-2xl-glass: 36px;
+
+  /* Motion */
+  --motion-fast: 120ms;
+  --motion-base: 180ms;
+  --motion-slow: 280ms;
+  --ease-glass: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 2px rgba(255, 255, 255, 0.6), 0 0 0 4px rgba(85, 110, 220, 0.5);
+}
+
+.dark {
+  --background: oklch(0.13 0.008 260);
+  --foreground: oklch(0.96 0.005 250);
+  --card: oklch(0.18 0.012 260);
+  --card-foreground: oklch(0.96 0.005 250);
+  --popover: oklch(0.18 0.012 260);
+  --popover-foreground: oklch(0.96 0.005 250);
+  --primary: oklch(0.7 0.18 264);
+  --primary-foreground: oklch(0.12 0.01 260);
+  --secondary: oklch(0.22 0.012 260);
+  --secondary-foreground: oklch(0.96 0.005 250);
+  --muted: oklch(0.22 0.012 260);
+  --muted-foreground: oklch(0.68 0.012 260);
+  --accent: oklch(0.28 0.04 264);
+  --accent-foreground: oklch(0.92 0.04 264);
+  --destructive: oklch(0.7 0.2 22);
+  --success: oklch(0.72 0.16 152);
+  --warning: oklch(0.78 0.16 70);
+  --info: oklch(0.7 0.14 230);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.7 0.18 264);
+  --chart-1: oklch(0.488 0.243 264);
+  --chart-2: oklch(0.696 0.17 162);
+  --chart-3: oklch(0.769 0.188 70);
+  --chart-4: oklch(0.627 0.265 304);
+  --chart-5: oklch(0.645 0.246 16);
+  --sidebar: oklch(0.18 0.012 260);
+  --sidebar-foreground: oklch(0.96 0.005 250);
+  --sidebar-primary: oklch(0.7 0.18 264);
+  --sidebar-primary-foreground: oklch(0.12 0.01 260);
+  --sidebar-accent: oklch(0.28 0.04 264);
+  --sidebar-accent-foreground: oklch(0.92 0.04 264);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.7 0.18 264);
+
+  /* Dark mode glass — deep but not pure black */
+
+  --glass-thin-bg: rgba(28, 30, 40, 0.45);
+  --glass-thin-bg-hover: rgba(40, 44, 56, 0.58);
+  --glass-thin-bg-pressed: rgba(22, 24, 32, 0.35);
+  --glass-thin-border: rgba(255, 255, 255, 0.12);
+  --glass-thin-border-inset: rgba(255, 255, 255, 0.06);
+  --glass-thin-highlight-top: rgba(255, 255, 255, 0.18);
+  --glass-thin-highlight-bottom: rgba(255, 255, 255, 0.03);
+  --glass-thin-inner-shadow: rgba(255, 255, 255, 0.08);
+  --glass-thin-ambient-shadow: rgba(0, 0, 0, 0.4);
+  --glass-thin-contact-shadow: rgba(0, 0, 0, 0.25);
+  --glass-thin-edge: rgba(255, 255, 255, 0.14);
+
+  --glass-regular-bg: rgba(30, 32, 42, 0.6);
+  --glass-regular-bg-hover: rgba(42, 46, 60, 0.7);
+  --glass-regular-bg-pressed: rgba(24, 26, 34, 0.5);
+  --glass-regular-border: rgba(255, 255, 255, 0.16);
+  --glass-regular-border-inset: rgba(255, 255, 255, 0.08);
+  --glass-regular-highlight-top: rgba(255, 255, 255, 0.22);
+  --glass-regular-highlight-bottom: rgba(255, 255, 255, 0.04);
+  --glass-regular-inner-shadow: rgba(255, 255, 255, 0.1);
+  --glass-regular-ambient-shadow: rgba(0, 0, 0, 0.5);
+  --glass-regular-contact-shadow: rgba(0, 0, 0, 0.3);
+  --glass-regular-edge: rgba(255, 255, 255, 0.18);
+
+  --glass-strong-bg: rgba(28, 30, 38, 0.78);
+  --glass-strong-bg-hover: rgba(38, 42, 54, 0.85);
+  --glass-strong-bg-pressed: rgba(22, 24, 32, 0.7);
+  --glass-strong-border: rgba(255, 255, 255, 0.22);
+  --glass-strong-border-inset: rgba(255, 255, 255, 0.1);
+  --glass-strong-highlight-top: rgba(255, 255, 255, 0.28);
+  --glass-strong-highlight-bottom: rgba(255, 255, 255, 0.06);
+  --glass-strong-inner-shadow: rgba(255, 255, 255, 0.14);
+  --glass-strong-ambient-shadow: rgba(0, 0, 0, 0.6);
+  --glass-strong-contact-shadow: rgba(0, 0, 0, 0.4);
+  --glass-strong-edge: rgba(255, 255, 255, 0.24);
+
+  --glass-highlight: rgba(255, 255, 255, 0.22);
+  --glass-specular: rgba(255, 255, 255, 0.4);
+  --glass-tint: rgba(255, 255, 255, 0.03);
+
+  --focus-ring: 0 0 0 2px rgba(255, 255, 255, 0.25), 0 0 0 4px rgba(120, 140, 255, 0.5);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: color-mix(in oklch, var(--ring) 50%, transparent);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+  }
+}
+
+/* ─── Glass primitive utilities ─── */
+
+@layer components {
+  .glass {
+    position: relative;
+    background-color: var(--glass-regular-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur-regular)) saturate(var(--glass-saturation)) brightness(var(--glass-brightness));
+    backdrop-filter: blur(var(--glass-blur-regular)) saturate(var(--glass-saturation)) brightness(var(--glass-brightness));
+    box-shadow:
+      inset 0 1px 0 0 var(--glass-regular-highlight-top),
+      inset 0 -1px 0 0 var(--glass-regular-highlight-bottom),
+      inset 0 0 0 0.5px var(--glass-regular-edge),
+      0 1px 2px -1px var(--glass-regular-contact-shadow),
+      0 8px 24px -12px var(--glass-regular-ambient-shadow);
+    transition:
+      background-color var(--motion-base) var(--ease-glass),
+      box-shadow var(--motion-base) var(--ease-glass),
+      transform var(--motion-base) var(--ease-glass);
+  }
+
+  .glass-thin {
+    position: relative;
+    background-color: var(--glass-thin-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur-thin)) saturate(var(--glass-saturation)) brightness(var(--glass-brightness));
+    backdrop-filter: blur(var(--glass-blur-thin)) saturate(var(--glass-saturation)) brightness(var(--glass-brightness));
+    box-shadow:
+      inset 0 1px 0 0 var(--glass-thin-highlight-top),
+      inset 0 -1px 0 0 var(--glass-thin-highlight-bottom),
+      inset 0 0 0 0.5px var(--glass-thin-edge),
+      0 1px 2px -1px var(--glass-thin-contact-shadow),
+      0 4px 12px -8px var(--glass-thin-ambient-shadow);
+    transition:
+      background-color var(--motion-base) var(--ease-glass),
+      box-shadow var(--motion-base) var(--ease-glass),
+      transform var(--motion-base) var(--ease-glass);
+  }
+
+  .glass-strong {
+    position: relative;
+    background-color: var(--glass-strong-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturation-strong)) brightness(var(--glass-brightness));
+    backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturation-strong)) brightness(var(--glass-brightness));
+    box-shadow:
+      inset 0 1px 0 0 var(--glass-strong-highlight-top),
+      inset 0 -1px 0 0 var(--glass-strong-highlight-bottom),
+      inset 0 0 0 0.5px var(--glass-strong-edge),
+      0 2px 4px -2px var(--glass-strong-contact-shadow),
+      0 16px 40px -16px var(--glass-strong-ambient-shadow);
+    transition:
+      background-color var(--motion-base) var(--ease-glass),
+      box-shadow var(--motion-base) var(--ease-glass),
+      transform var(--motion-base) var(--ease-glass);
+  }
+
+  /* Specular sheen, for floating buttons & emphasized controls */
+  .glass-specular::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      var(--glass-specular) 0%,
+      transparent 28%,
+      transparent 72%,
+      var(--glass-highlight) 100%
+    );
+    opacity: 0.35;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    transition: opacity var(--motion-base) var(--ease-glass);
+  }
+  .glass-specular:hover::before {
+    opacity: 0.55;
+  }
+
+  /* Edge refraction , simulates light bending at glass rim */
+  .glass-edge::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 0.5px;
+    background: linear-gradient(
+      180deg,
+      var(--glass-highlight) 0%,
+      transparent 30%,
+      transparent 70%,
+      var(--glass-regular-edge, var(--glass-highlight)) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  /* Pressed state — subtle scale + flatten material */
+  .glass-pressable {
+    cursor: pointer;
+    transition:
+      background-color var(--motion-base) var(--ease-glass),
+      box-shadow var(--motion-base) var(--ease-glass),
+      transform var(--motion-fast) var(--ease-glass);
+  }
+  .glass-pressable:hover {
+    background-color: var(--glass-regular-bg-hover);
+  }
+  .glass-pressable:active {
+    background-color: var(--glass-regular-bg-pressed);
+    transform: scale(0.985);
+    box-shadow:
+      inset 0 1px 0 0 var(--glass-regular-highlight-top),
+      inset 0 0 0 0.5px var(--glass-regular-border),
+      0 1px 2px -1px var(--glass-regular-contact-shadow);
+  }
+
+  .glass-pressable-thin:hover {
+    background-color: var(--glass-thin-bg-hover);
+  }
+  .glass-pressable-thin:active {
+    background-color: var(--glass-thin-bg-pressed);
+    transform: scale(0.985);
+  }
+
+  .glass-pressable-strong:hover {
+    background-color: var(--glass-strong-bg-hover);
+  }
+  .glass-pressable-strong:active {
+    background-color: var(--glass-strong-bg-pressed);
+    transform: scale(0.99);
+  }
+}
+
+@layer utilities {
+  .glass-focus-visible:focus-visible {
+    outline: none;
+    box-shadow:
+      inset 0 1px 0 0 var(--glass-regular-highlight-top),
+      inset 0 0 0 0.5px var(--glass-regular-border),
+      var(--focus-ring);
+  }
+
+  .glass-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .glass-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .glass-scroll::-webkit-scrollbar-thumb {
+    background: rgba(120, 130, 160, 0.25);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  .glass-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 130, 160, 0.45);
+    background-clip: padding-box;
+  }
+
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+  }
+  .safe-top {
+    padding-top: max(env(safe-area-inset-top), 0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
