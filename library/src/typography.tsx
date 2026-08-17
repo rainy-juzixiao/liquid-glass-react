@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "./utils";
+import { cn } from "./utils/className";
 
 const titleVariants = cva(
   "font-semibold tracking-[-0.01em] text-foreground leading-tight",

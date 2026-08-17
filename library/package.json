@@ -31,8 +31,15 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "clean": "rm -rf dist",
-    "prepublishOnly": "bun run clean && bun run build"
+    "prepublishOnly": "node run clean && node run build"
   },
+  "exports": {
+    "./*": "./dist/*.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
