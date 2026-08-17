@@ -377,12 +377,11 @@ export function useLiquidGlassFilter(options: {
         if (liquidGlassManager.isReady(reg)) {
             return;
         }
-        const unsub = liquidGlassManager.subscribe(() => {
+        return liquidGlassManager.subscribe(() => {
             if (liquidGlassManager.isReady(reg)) {
                 forceUpdate();
             }
         });
-        return unsub;
     }, [filterId, width, height, radius, shape, strength]);
 
     return filterId;
